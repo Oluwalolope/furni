@@ -29,7 +29,7 @@ const Header = () => {
     }
     return (
         <div className='bg-background-header'>
-            <header className='flex flex-row justify-between items-center w-full max-w-[1512px] px-4 md:px-6 lg:px-[138px] pt-16 pb-5 relative'>
+            <header className='flex flex-row justify-between items-center w-full max-w-[1512px] mx-auto px-4 md:px-6 lg:px-[138px] pt-16 pb-5 relative'>
                 <Link href="/" >
                     <Image src={logo} alt="Furni logo" />
                 </Link>

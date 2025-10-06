@@ -1,13 +1,13 @@
 const SocialMediaIcons = () => {
     return (
         <div className="mt-8 flex flex-row gap-4">
-            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors">
+            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors duration-300">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47 14 5.5 16 5.5H17.5V2.14C17.174 2.097 15.943 2 14.643 2C11.928 2 10 3.657 10 6.7V9.5H7V13.5H10V22H14V13.5Z" fill="currentColor"/>
                 </svg>
             </a>
 
-            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors">
+            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors duration-300">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_9_65)">
                     <g clipPath="url(#clip1_9_65)">
@@ -30,13 +30,13 @@ const SocialMediaIcons = () => {
                 </svg>
             </a>
 
-            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors">
+            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors duration-300">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.2781 2C14.4031 2.003 14.9741 2.009 15.4671 2.023L15.6611 2.03C15.8851 2.038 16.1061 2.048 16.3731 2.06C17.4371 2.11 18.1631 2.278 18.8001 2.525C19.4601 2.779 20.0161 3.123 20.5721 3.678C21.0808 4.17773 21.4743 4.78247 21.7251 5.45C21.9721 6.087 22.1401 6.813 22.1901 7.878C22.2021 8.144 22.2121 8.365 22.2201 8.59L22.2261 8.784C22.2411 9.276 22.2471 9.847 22.2491 10.972L22.2501 11.718V13.028C22.2525 13.7574 22.2448 14.4868 22.2271 15.216L22.2211 15.41C22.2131 15.635 22.2031 15.856 22.1911 16.122C22.1411 17.187 21.9711 17.912 21.7251 18.55C21.4743 19.2175 21.0808 19.8223 20.5721 20.322C20.0723 20.8307 19.4676 21.2242 18.8001 21.475C18.1631 21.722 17.4371 21.89 16.3731 21.94L15.6611 21.97L15.4671 21.976C14.9741 21.99 14.4031 21.997 13.2781 21.999L12.5321 22H11.2231C10.4933 22.0026 9.7636 21.9949 9.03408 21.977L8.84008 21.971C8.60269 21.962 8.36535 21.9517 8.12808 21.94C7.06408 21.89 6.33808 21.722 5.70008 21.475C5.03291 21.2241 4.42852 20.8306 3.92908 20.322C3.42003 19.8224 3.02619 19.2176 2.77508 18.55C2.52808 17.913 2.36008 17.187 2.31008 16.122L2.28008 15.41L2.27508 15.216C2.25665 14.4868 2.24831 13.7574 2.25008 13.028V10.972C2.24731 10.2426 2.25465 9.5132 2.27208 8.784L2.27908 8.59C2.28708 8.365 2.29708 8.144 2.30908 7.878C2.35908 6.813 2.52708 6.088 2.77408 5.45C3.02577 4.7822 3.4203 4.17744 3.93008 3.678C4.42923 3.16955 5.03327 2.77607 5.70008 2.525C6.33808 2.278 7.06308 2.11 8.12808 2.06C8.39408 2.048 8.61608 2.038 8.84008 2.03L9.03408 2.024C9.76327 2.00623 10.4927 1.99857 11.2221 2.001L13.2781 2ZM12.2501 7C10.924 7 9.65223 7.52678 8.71455 8.46447C7.77687 9.40215 7.25008 10.6739 7.25008 12C7.25008 13.3261 7.77687 14.5979 8.71455 15.5355C9.65223 16.4732 10.924 17 12.2501 17C13.5762 17 14.8479 16.4732 15.7856 15.5355C16.7233 14.5979 17.2501 13.3261 17.2501 12C17.2501 10.6739 16.7233 9.40215 15.7856 8.46447C14.8479 7.52678 13.5762 7 12.2501 7ZM12.2501 9C12.644 8.99993 13.0342 9.07747 13.3982 9.22817C13.7622 9.37887 14.0929 9.5998 14.3715 9.87833C14.6502 10.1569 14.8712 10.4875 15.022 10.8515C15.1729 11.2154 15.2505 11.6055 15.2506 11.9995C15.2506 12.3935 15.1731 12.7836 15.0224 13.1476C14.8717 13.5116 14.6508 13.8423 14.3723 14.121C14.0937 14.3996 13.763 14.6206 13.3991 14.7714C13.0351 14.9223 12.645 14.9999 12.2511 15C11.4554 15 10.6924 14.6839 10.1298 14.1213C9.56715 13.5587 9.25108 12.7956 9.25108 12C9.25108 11.2044 9.56715 10.4413 10.1298 9.87868C10.6924 9.31607 11.4554 9 12.2511 9M17.5011 5.5C17.1696 5.5 16.8516 5.6317 16.6172 5.86612C16.3828 6.10054 16.2511 6.41848 16.2511 6.75C16.2511 7.08152 16.3828 7.39946 16.6172 7.63388C16.8516 7.8683 17.1696 8 17.5011 8C17.8326 8 18.1505 7.8683 18.385 7.63388C18.6194 7.39946 18.7511 7.08152 18.7511 6.75C18.7511 6.41848 18.6194 6.10054 18.385 5.86612C18.1505 5.6317 17.8326 5.5 17.5011 5.5Z" fill="currentColor"/>
                 </svg>
             </a>
 
-            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors">
+            <a href="#" className="size-11 rounded-full inline-grid place-items-center bg-[#DCE5E4] text-[#3B5D50] hover:bg-[#3B5D50] hover:text-white transition-colors duration-300">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clipPath="url(#clip0_9_190)">
                     <g clipPath="url(#clip1_9_190)">

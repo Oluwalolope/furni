@@ -13,7 +13,7 @@ const Newsletter = () => {
             <form action="" className='mt-6 gap-5 flex flex-col lg:flex-row'>
                 <input type="text" placeholder='Enter your name'  className='h-[55px] font-inter text-[16px] font-medium border border-border rounded-xl px-4 py-[18px]' />
                 <input type='email' placeholder='Enter your email'  className='h-[55px] font-inter text-[16px] font-medium border border-border rounded-xl px-4 py-[18px]' />
-                <button type='submit' aria-roledescription='Press this button to sign up to our newsletter' className='bg-background-header h-[56px] lg:w-[88px] rounded-xl inline-grid place-items-center text-white hover:bg-[#DCE5E4] hover:text-[#3B5D50] transition-colors cursor-pointer'>
+                <button type='submit' aria-roledescription='Press this button to sign up to our newsletter' className='bg-background-header h-[56px] lg:w-[88px] rounded-xl inline-grid place-items-center text-white hover:bg-[#DCE5E4] hover:text-[#3B5D50] transition-colors duration-300 cursor-pointer'>
                     <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_0_390" style={{maskType: 'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="28">
                         <path d="M24.5121 0.170898H0.648438V27.0509H24.5121V0.170898Z" fill="currentColor"/>

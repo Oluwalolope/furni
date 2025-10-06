@@ -1,3 +1,4 @@
+import HeroSection from "@/components/HeroSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,9 +8,13 @@ export const metadata: Metadata = {
 
 const ShopPage = () => {
     return (
-        <main>
-            shop
-        </main>
+        <>
+            <HeroSection title="shop" />
+
+            <main className="bg-background-main h-[60px]">
+              shop
+            </main>
+        </>
     );
 }
  

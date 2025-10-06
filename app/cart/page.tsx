@@ -1,3 +1,4 @@
+import HeroSection from "@/components/HeroSection";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,9 +8,13 @@ export const metadata: Metadata = {
 
 const CartPage = () => {
     return (
-        <main>
-            cart
-        </main>
+        <>
+            <HeroSection title="cart" />
+
+            <main className="bg-background-main h-[60px]">
+                cart
+            </main>
+        </>
     );
 }
  
