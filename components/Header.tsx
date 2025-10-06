@@ -60,11 +60,11 @@ const Header = () => {
 
                 <AnimatePresence>
                     {isMobileNavOpen && 
-                    <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="absolute bg-background-header w-full [height:_calc(100dvh_-_115px)] top-[115px] flex flex-col gap-10 left-0 lg:hidden">
+                    <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="absolute bg-background-header w-full [height:_calc(100dvh_-_115px)] top-[115px] flex flex-col gap-10 left-0 lg:hidden z-50">
                         <ul className="flex flex-col gap-8 items-center pt-10 ps-4 lg:hidden">
                             {NAV_ITEMS.map((item, index) =>
                                 <NavLink key={index} href={item.href}>
-                                    <li >{item.name}</li>
+                                    <li onClick={handleClick} >{item.name}</li>
                                 </NavLink>
                             )}
                         </ul>

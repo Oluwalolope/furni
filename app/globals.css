@@ -4,6 +4,7 @@
   --background-header: #3B5D50;
   --background-main: #EFF2F1;
   --background-footer: #ffffff;
+  --border-color: #ABADB0;
   --foreground: #171717;
 }
 
@@ -11,6 +12,7 @@
   --color-background-header: var(--background-header);
   --color-background-main: var(--background-main);
   --color-background-footer: var(--background-footer);
+  --color-border: var(--border-color);
   --color-foreground: var(--foreground);
   --font-inter: var(--font-inter);
 }
