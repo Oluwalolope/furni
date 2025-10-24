@@ -17,7 +17,7 @@ const Footer = () => {
 
                 <div className="mb-28 flex flex-col gap-16 lg:flex-row lg:gap-28">
                     <div>
-                        <p className='font-inter font-medium text-lg text-[#87857D] max-w-[363px]'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
+                        <p className='font-inter font-medium text-lg text-[#87857D] max-w-[363px]'>We design and deliver stylish, high-quality furniture that fits perfectly into your modern lifestyle. From living rooms to workspaces, every piece is crafted to bring comfort, beauty, and functionality into your space.</p>
                         <SocialMediaIcons />
                     </div>
 

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CartContextProvider from "@/store/cart-context-provider";
 
 
 const inter = Inter({
@@ -22,13 +23,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} antialiased`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
+      <CartContextProvider>
+        <body
+          className={`${inter.variable} antialiased`}
+        >
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </CartContextProvider>
     </html>
   );
 }

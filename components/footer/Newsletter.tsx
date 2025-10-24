@@ -1,8 +1,46 @@
+'use client';
+
 import emailIcon from '@/assets/icons/email-icon.svg';
 import Image from "next/image";
+import { useState } from 'react';
+
+const isInvalidText = (text: string) => {
+    if (text.trim() === '') {
+        return true;
+    }
+    return false;
+}
+
+const sendContactMessage = (formData: FormData) => {
+    const contactMessage = {
+        name: formData.get('name'),
+        email: formData.get('email')
+    };
+
+    
+    if (
+        isInvalidText((contactMessage.name)!.toString()) || 
+        isInvalidText((contactMessage.email)!.toString())
+    ) {
+        return {
+            message: 'Invalid input. Ensure you fill the form correctly.'
+        };
+    }
+    
+    // Alert the user on successful submission
+    alert(`You have successfully subscribed to our newsletter:  Name: ${contactMessage.name}, Email Address: ${contactMessage.email}`);
+
+    return {
+        message: ''
+    };
+};
 
 const Newsletter = () => {
-    let style = {maskType: 'alpha'};
+    const [error, setError] = useState('');
+    const submitAction = (formData: FormData) => {
+        const { message } = sendContactMessage(formData);
+        setError(message);
+    }
     return (
         <div>
             <div className='flex flex-row gap-2 items-center'>
@@ -10,9 +48,9 @@ const Newsletter = () => {
                 <h3 className='font-inter text-xl font-medium text-[#3B6159]'>Subscribe to Newsletter</h3>
             </div>
 
-            <form action="" className='mt-6 gap-5 flex flex-col lg:flex-row'>
-                <input type="text" placeholder='Enter your name'  className='h-[55px] font-inter text-[16px] font-medium border border-border rounded-xl px-4 py-[18px]' />
-                <input type='email' placeholder='Enter your email'  className='h-[55px] font-inter text-[16px] font-medium border border-border rounded-xl px-4 py-[18px]' />
+            <form action={submitAction} className='mt-6 gap-5 flex flex-col lg:flex-row'>
+                <input type="text" placeholder='Enter your name' id='name' name='name'  className='h-[55px] font-inter text-[16px] font-medium border border-border px-4 py-[18px]  hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white' required />
+                <input type='email' placeholder='Enter your email' id='email' name='email'  className='h-[55px] font-inter text-[16px] font-medium border border-border px-4 py-[18px]  hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white' required />
                 <button type='submit' aria-roledescription='Press this button to sign up to our newsletter' className='bg-background-header h-[56px] lg:w-[88px] rounded-xl inline-grid place-items-center text-white hover:bg-[#DCE5E4] hover:text-[#3B5D50] transition-colors duration-300 cursor-pointer'>
                     <svg width="25" height="28" viewBox="0 0 25 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <mask id="mask0_0_390" style={{maskType: 'alpha'}} maskUnits="userSpaceOnUse" x="0" y="0" width="25" height="28">
@@ -24,6 +62,7 @@ const Newsletter = () => {
                     </svg>
                 </button>
             </form>
+            {error && <p className="mb-4 text-[14px] text-red-600">{error}</p>}
         </div>
     );
 }
