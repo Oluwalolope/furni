@@ -45,11 +45,11 @@ const CheckOutPage = () => {
   return (
     <div className="bg-background-main">
       <main className="w-full max-w-[1512px] mx-auto py-[186px] px-4 md:px-6 lg:px-[138px]">
-              <h1 className="font-inter font-medium text-[#000000] text-[30px] text-center [line-height:_32px] hidden md:inline-block  pb-10">
+              <h1 className="font-inter font-medium text-[#000000] text-[30px] text-center [line-height:_32px] hidden md:inline-block pb-10">
                 Check Out
               </h1>
         <section className="flex flex-col-reverse md:flex-row gap-y-5 w-full h-full">
-          <div className="flex-1 mx-auto md:mx-0 pt-[75px] md:ps-[130px] md:pe-[18px]">
+          <div className="flex-1 mx-auto md:mx-0 pt-[75px] md:pe-[18px]">
             <div className="md:p-12 ps-0 flex flex-col gap-9 justify-between">
               <h2 className="font-inter font-medium text-[#000000] text-[28px] [line-height:_32px] border-b border-[#DEE2E6] pb-3">
                 Payment
@@ -236,7 +236,7 @@ const CheckOutPage = () => {
             </div>
           </div>
 
-          <div className="md:border-s md:border-black flex-1 md:ps-[18px] md:pt-[75px] md:pe-[130px] ">
+          <div className="flex-1 md:ps-[18px] md:pt-[75px]">
             <div className="md:p-12 pe-0 flex flex-col gap-9 justify-between">
               <h2 className="font-inter font-medium text-[#000000] text-[28px] [line-height:_32px] border-b border-[#DEE2E6] pb-3">
                 Order Summary
