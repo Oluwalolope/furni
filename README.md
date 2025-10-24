@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 🪑 Modern Furniture Website
 
-First, run the development server:
+A fully responsive furniture e-commerce website built with Next.js and Tailwind CSS, designed to showcase stylish furniture collections with a clean and modern layout. The site includes a functional cart system, checkout page, and a blog section for design inspiration — all optimized for smooth performance and user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Features
+- 🏠 Beautiful Homepage – Highlights furniture collections with a minimal, modern UI.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 🛋️ Product Pages – Each item includes detailed descriptions, pricing, and visuals.
 
-## Learn More
+- 🛒 Cart Functionality – Add, remove, and manage products easily.
 
-To learn more about Next.js, take a look at the following resources:
+- 💳 Checkout Page – Simulates a real checkout flow for an authentic e-commerce experience.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 📰 Blog Section – Offers design tips and inspiration to engage visitors.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- 📱 Responsive Design – Works seamlessly across all devices using Tailwind CSS.
 
-## Deploy on Vercel
+- ⚡ Optimized Performance – Built with Next.js for fast loading and smooth navigation.
+## 🧰 Tech Stack
+- Frontend: Next.js, React.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Styling: Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- State Management: React Hooks (useState, useEffect, Context API)
+
+- Deployment: Vercel
+
+## ✨ Learning Outcomes
+
+- Improved understanding of React component architecture and state management.
+
+- Learned to handle cart and checkout logic in a scalable way.
+
+- Gained hands-on experience with Next.js routing and Tailwind CSS responsiveness.
+
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://oluwalolope-adeleye.vercel.app)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/oluwalolopeadeleye)
