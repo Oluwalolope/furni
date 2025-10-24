@@ -42,7 +42,7 @@ const Home = () => {
                   <li className="font-inter font-medium text-[16px] [line-height:_32px] text-[#87857D] md:max-w-[224px]">Seamless shopping and transparent delivery</li>
                   <li className="font-inter font-medium text-[16px] [line-height:_32px] text-[#87857D] md:max-w-[224px]">Style guidance to match your taste</li>
                 </ul>
-                <Link href='/about' className="py-1.5 px-4 lg:py-3 lg:px-8 bg-[#2F2F2F] hover:bg-[#6D6D6D] transition-all duration-300 cursor-pointer rounded-[100px] capitalize text-white font-inter font-semibold text-lg" >explore</Link>
+                <Link href='/about' className="py-3 px-8 bg-[#2F2F2F] hover:bg-[#6D6D6D] transition-all duration-300 cursor-pointer rounded-[100px] capitalize text-white font-inter font-semibold text-lg" >explore</Link>
               </div>
             </div>
             <div className="grid justify-items-center gap-x-[57px] gap-y-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

@@ -3,31 +3,19 @@
 import PRODUCTS from "@/data/products";
 import { CartContext } from "@/store/cart-context-provider";
 import currencyFormatter from "@/util/formatting";
-import { useContext } from "react";
+import Link from "next/link";
+import { useContext, useState } from "react";
 
 const CartTotals = () => {
     const cartCtx = useContext(CartContext);
+  
 
-    const discount = 0
+    const discount = 0.0; // No discount applied currently
 
-    // let subTotalPrice = 0;
-
-    // const calculatedSubTotalPrice =  cartCtx.cartItems.forEach(cartItem => {
-    //     const cartItemPrice = PRODUCTS.filter(product => product.id === cartItem.id)[0].price;
-
-    //     if (!cartItemPrice) {
-    //         return
-    //     };
-
-    //     subTotalPrice = cartItemPrice * cartItem.quantity;
-    //     console.log(subTotalPrice);
-    //     return subTotalPrice;
-    // });
-
-    const subTotalPrice = cartCtx.cartItems.reduce((totalPrice, item) => {
+    const subTotalPrice = cartCtx.cartItems.reduce((calculatedSubTotalPrice, item) => {
         const cartItemPrice = PRODUCTS.filter(product => product.id === item.id)[0].price;
 
-        return totalPrice + (item.quantity * cartItemPrice)
+        return calculatedSubTotalPrice + (item.quantity * cartItemPrice);
     }, 0);
     
     const totalPrice = subTotalPrice - (subTotalPrice * discount);
@@ -56,9 +44,11 @@ const CartTotals = () => {
             {currencyFormatter.format(totalPrice)}
           </p>
         </div>
-        <button className="mt-8 py-1.5 px-4 lg:py-3 lg:px-8 bg-[#2F2F2F] hover:bg-[#6D6D6D] transition-all duration-300 cursor-pointer rounded-[100px] capitalize text-[#ffff] font-inter font-semibold text-lg">
-          Proceed to Checkout
-        </button>
+        {cartCtx.cartItems.length !== 0 && <Link href='/cart/checkout' >
+          <button className="mt-8 py-3 px-8 bg-[#2F2F2F] hover:bg-[#6D6D6D] transition-all duration-300 cursor-pointer rounded-[100px] capitalize text-[#ffff] font-inter font-semibold text-lg">
+            Proceed to Checkout
+          </button>
+        </Link>}
       </div>
     </div>
   );

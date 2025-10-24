@@ -8,7 +8,6 @@ const MobileCartView = () => {
   const cartCtx = useContext(CartContext);
   return (
     <section className="mx-auto w-full flex flex-col gap-y-3 md:hidden">
-      <h2 className="font-inter font-medium text-[20px]">Your Cart</h2>
       {cartCtx.cartItems.map((cart_item) => (
         <CartItem
           key={cart_item.id}

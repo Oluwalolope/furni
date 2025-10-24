@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 type CartItems = {
     id: string ,
@@ -14,24 +14,27 @@ type CartCtx = {
     handleDeleteCartItem: (id: string) => void
 };
 
-const cartItemsFromLocalStorage = localStorage.getItem('cartItems');
-
-let storedCartItems: CartItems[] =  [];
-
-if (cartItemsFromLocalStorage) {
-    storedCartItems = JSON.parse(cartItemsFromLocalStorage);
-};
-
 
 export const CartContext = createContext<CartCtx>({
-    cartItems: storedCartItems,
+    cartItems: [],
     handleAddItemToCart: () => {},
     handleUpdateCartItemQuantity: () => {},
     handleDeleteCartItem: () => {},
 });
 
 const CartContextProvider = ({children}: {children: React.ReactNode}) => {
-    const [cartItems, setCartItems] = useState<CartItems[]>(storedCartItems);
+    const [cartItems, setCartItems] = useState<CartItems[]>([]);
+
+    useEffect(() => {
+      const cartItemsFromLocalStorage = localStorage.getItem('cartItems');
+
+      let storedCartItems: CartItems[] =  [];
+
+      if (cartItemsFromLocalStorage) {
+        storedCartItems = JSON.parse(cartItemsFromLocalStorage);
+      };
+      setCartItems(storedCartItems);
+    }, [])
 
     const handleAddItemToCart = (id: string) => {
       setCartItems(prevCartItems => {
