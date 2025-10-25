@@ -8,11 +8,53 @@ import { useContext, useRef, useState } from "react";
 
 const CheckOutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [cardNumber, setCardNumber] = useState("");
+  const [expirationDate, setExpirationDate] = useState("");
+  const [cvv, setCvv] = useState("");
   const cartCtx = useContext(CartContext);
 
   const bankTransferAccountNumberRef = useRef<HTMLParagraphElement | null>(
     null
   );
+
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Remove all non-digit characters
+    let value = e.target.value.replace(/\D/g, "");
+
+    // Limit to 16 digits
+    value = value.slice(0, 16);
+
+    // Add a space after every 4 digits
+    value = value.replace(/(.{4})/g, "$1 ").trim();
+
+    setCardNumber(value);
+  };
+
+  const handleExpirationDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value.replace(/\D/g, ""); // Remove all non-digits
+
+    // Limit to 4 digits total (MMYY)
+    if (value.length > 4) {
+      value = value.slice(0, 4);
+    } 
+
+    // Add slash after 2 digits (MM/YY)
+    if (value.length > 2) {
+      value = value.slice(0, 2) + "/" + value.slice(2);
+    }
+
+    setExpirationDate(value);
+  };
+
+  const handleCvvChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Remove all non-digit characters
+    let value = e.target.value.replace(/\D/g, "");
+
+    // Limit to 3 digits
+    value = value.slice(0, 3);
+
+    setCvv(value);
+  };
 
   const subTotalPrice = cartCtx.cartItems.reduce(
     (calculatedSubTotalPrice, item) => {
@@ -103,16 +145,16 @@ const CheckOutPage = () => {
                 <form>
                     <div className="flex flex-col flex-1 my-8">
                       <label htmlFor="cardNumber" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">Card Number</label>
-                      <input type="number" id="cardNumber" name="cardNumber" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="1234567891011121" required/>
+                      <input type="text" value={cardNumber} onChange={handleCardNumberChange} inputMode="numeric" id="cardNumber" name="cardNumber" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="1234 5678 9101 1121" required/>
                     </div>
                   <div className="flex flex-col md:flex-row gap-6 w-full">
                     <div className="flex flex-col flex-1">
                       <label htmlFor="expirationDate" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">Expiration Date</label>
-                      <input type="number" id="expirationDate" name="expirationDate" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="MM/YY" required/>
+                      <input type="text" value={expirationDate} onChange={handleExpirationDateChange} inputMode="numeric" id="expirationDate" name="expirationDate" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="MM/YY" required/>
                     </div>
                     <div className="flex flex-col flex-1">
                       <label htmlFor="cvv" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">CVV</label>
-                      <input type="number" minLength={3} maxLength={3} id="cvv" name="cvv" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="123" required/>
+                      <input type="number" value={cvv} onChange={handleCvvChange} minLength={3} maxLength={3} id="cvv" name="cvv" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="123" required/>
                     </div>
                   </div>
                   <button type="button" className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9">
