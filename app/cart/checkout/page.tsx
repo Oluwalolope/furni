@@ -24,8 +24,8 @@ const CheckOutPage = () => {
     // Remove all non-digit characters
     let value = e.target.value.replace(/\D/g, "");
 
-    // Limit to 16 digits
-    value = value.slice(0, 16);
+    // Limit to 10 digits
+    value = value.slice(0, 10);
 
     setAccountNumberChange(value);
   };
