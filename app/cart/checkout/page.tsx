@@ -8,6 +8,7 @@ import { useContext, useRef, useState } from "react";
 
 const CheckOutPage = () => {
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [accountNumber, setAccountNumberChange] = useState("");
   const [cardNumber, setCardNumber] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
   const [cvv, setCvv] = useState("");
@@ -16,6 +17,18 @@ const CheckOutPage = () => {
   const bankTransferAccountNumberRef = useRef<HTMLParagraphElement | null>(
     null
   );
+
+  const handleAccountNumberChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    // Remove all non-digit characters
+    let value = e.target.value.replace(/\D/g, "");
+
+    // Limit to 16 digits
+    value = value.slice(0, 16);
+
+    setAccountNumberChange(value);
+  };
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     // Remove all non-digit characters
@@ -30,13 +43,15 @@ const CheckOutPage = () => {
     setCardNumber(value);
   };
 
-  const handleExpirationDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleExpirationDateChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     let value = e.target.value.replace(/\D/g, ""); // Remove all non-digits
 
     // Limit to 4 digits total (MMYY)
     if (value.length > 4) {
       value = value.slice(0, 4);
-    } 
+    }
 
     // Add slash after 2 digits (MM/YY)
     if (value.length > 2) {
@@ -87,9 +102,9 @@ const CheckOutPage = () => {
   return (
     <div className="bg-background-main">
       <main className="w-full max-w-[1512px] mx-auto py-[186px] px-4 md:px-6 lg:px-[138px]">
-              <h1 className="font-inter font-medium text-[#000000] text-[30px] text-center [line-height:_32px] hidden md:inline-block pb-10">
-                Check Out
-              </h1>
+        <h1 className="font-inter font-medium text-[#000000] text-[30px] text-center [line-height:_32px] hidden md:inline-block pb-10">
+          Check Out
+        </h1>
         <section className="flex flex-col-reverse md:flex-row gap-y-5 w-full h-full">
           <div className="flex-1 mx-auto md:mx-0 pt-[75px] md:pe-[18px]">
             <div className="md:p-12 ps-0 flex flex-col gap-9 justify-between">
@@ -140,33 +155,83 @@ const CheckOutPage = () => {
                 </div>
               </div>
 
-              {paymentMethod === 'card' && 
-              <div>
-                <form>
+              {paymentMethod === "card" && (
+                <div>
+                  <form>
                     <div className="flex flex-col flex-1 my-8">
-                      <label htmlFor="cardNumber" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">Card Number</label>
-                      <input type="text" value={cardNumber} onChange={handleCardNumberChange} inputMode="numeric" id="cardNumber" name="cardNumber" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="1234 5678 9101 1121" required/>
+                      <label
+                        htmlFor="cardNumber"
+                        className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3"
+                      >
+                        Card Number
+                      </label>
+                      <input
+                        type="text"
+                        value={cardNumber}
+                        onChange={handleCardNumberChange}
+                        inputMode="numeric"
+                        id="cardNumber"
+                        name="cardNumber"
+                        className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white"
+                        placeholder="1234 5678 9101 1121"
+                        required
+                      />
                     </div>
-                  <div className="flex flex-col md:flex-row gap-6 w-full">
-                    <div className="flex flex-col flex-1">
-                      <label htmlFor="expirationDate" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">Expiration Date</label>
-                      <input type="text" value={expirationDate} onChange={handleExpirationDateChange} inputMode="numeric" id="expirationDate" name="expirationDate" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="MM/YY" required/>
+                    <div className="flex flex-col md:flex-row gap-6 w-full">
+                      <div className="flex flex-col flex-1">
+                        <label
+                          htmlFor="expirationDate"
+                          className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3"
+                        >
+                          Expiration Date
+                        </label>
+                        <input
+                          type="text"
+                          value={expirationDate}
+                          onChange={handleExpirationDateChange}
+                          inputMode="numeric"
+                          id="expirationDate"
+                          name="expirationDate"
+                          className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white"
+                          placeholder="MM/YY"
+                          required
+                        />
+                      </div>
+                      <div className="flex flex-col flex-1">
+                        <label
+                          htmlFor="cvv"
+                          className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3"
+                        >
+                          CVV
+                        </label>
+                        <input
+                          type="number"
+                          value={cvv}
+                          onChange={handleCvvChange}
+                          minLength={3}
+                          maxLength={3}
+                          id="cvv"
+                          name="cvv"
+                          className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white"
+                          placeholder="123"
+                          required
+                        />
+                      </div>
                     </div>
-                    <div className="flex flex-col flex-1">
-                      <label htmlFor="cvv" className="font-inter font-medium text-[16px] capitalize text-[#2F2F2F] mb-3">CVV</label>
-                      <input type="number" value={cvv} onChange={handleCvvChange} minLength={3} maxLength={3} id="cvv" name="cvv" className="w-full h-[55px] p-5 border border-[#CED4DA] hover:border-[#515151] focus:border-[#515151] transition-all duration-300 rounded-xl bg-white" placeholder="123" required/>
-                    </div>
-                  </div>
-                  <button type="button" className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9">
-                    Pay {currencyFormatter.format(totalPrice)}
-                  </button>
-                  <p className="font-inter font-normal text-[#ACACAC] text-[14px]  [line-height:_22px]">
-                    Your personal data will be used to process your order,
-                    support your experience throughout this website, and for
-                    other purposes described in our privacy policy.
-                  </p>
-                </form>  
-                </div>}
+                    <button
+                      type="button"
+                      className="bg-[#32C770] hover:bg-green-700 transition-all duration-300 cursor-pointer w-full rounded-md py-5 font-inter font-bold text-white text-lg text-center mt-[97px] mb-9"
+                    >
+                      Pay {currencyFormatter.format(totalPrice)}
+                    </button>
+                    <p className="font-inter font-normal text-[#ACACAC] text-[14px]  [line-height:_22px]">
+                      Your personal data will be used to process your order,
+                      support your experience throughout this website, and for
+                      other purposes described in our privacy policy.
+                    </p>
+                  </form>
+                </div>
+              )}
 
               {paymentMethod === "bank" && (
                 <div>
@@ -175,7 +240,7 @@ const CheckOutPage = () => {
                     id="bank"
                     className="cursor-pointer px-3 py-2 flex-1 rounded-lg border border-slate-300 focus:ring-2 focus:ring-primary w-full bg-white"
                   >
-                    <option defaultValue="" disabled  hidden>
+                    <option defaultValue="" disabled hidden>
                       Choose your bank
                     </option>
                     <option value="access_bank">Access Bank</option>
@@ -202,6 +267,8 @@ const CheckOutPage = () => {
                       type="number"
                       minLength={10}
                       maxLength={10}
+                      value={accountNumber}
+                      onChange={handleAccountNumberChange}
                       inputMode="numeric"
                       placeholder="0123456789"
                       id="bankAccountNumber"
