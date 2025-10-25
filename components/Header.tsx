@@ -7,7 +7,7 @@ import NavLink from './NavLink';
 import CartButton from './cart/CartButton';
 import UserButton from './profile/UserButton';
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 
 
 
@@ -24,11 +24,30 @@ const NAV_ITEMS = [
 const Header = () => {
     const [isMobileNavOpen, setIsMobileNavOpen] = useState<Boolean>(false);
 
+    // Adding the logic to hide the nav when the user is scrolling down and show it when the user is scrolling up
+    const [isUserScrollingDown, setIsUserScrollingDown] = useState<Boolean>(false);
+    const { scrollY } = useScroll();
+    useMotionValueEvent(scrollY, "change", (latestY) => {
+        const previousY = scrollY.getPrevious();
+        if (latestY > previousY! && latestY > 250) {
+            setIsUserScrollingDown(true);
+        } else {
+            setIsUserScrollingDown(false);
+        }
+    });
+
     const handleClick = () => {
         setIsMobileNavOpen(prev => !prev);
     }
     return (
-        <div className='bg-background-header'>
+        <motion.div
+            variants={{
+                visible: { y: 0 },
+                hidden: { y: '-100%' }
+            }}
+            animate={(!isMobileNavOpen && isUserScrollingDown) ? 'hidden' : 'visible'}
+            transition={{ duration: 0.35, ease: 'easeInOut'}}
+         className='bg-background-header sticky top-0 z-[200]'>
             <header className='flex flex-row justify-between items-center w-full max-w-[1512px] mx-auto px-4 md:px-6 lg:px-[138px] pt-16 pb-5 relative'>
                 <Link href="/" >
                     <Image src={logo} alt="Furni logo" />
@@ -60,7 +79,7 @@ const Header = () => {
 
                 <AnimatePresence>
                     {isMobileNavOpen && 
-                    <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="absolute bg-background-header w-full [height:_calc(100dvh_-_115px)] top-[115px] flex flex-col gap-10 left-0 lg:hidden z-50">
+                    <motion.nav initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} className="absolute bg-background-header w-full [min-height:_calc(100dvh_-_115px)] top-[115px] flex flex-col gap-10 left-0 lg:hidden z-50">
                         <ul className="flex flex-col gap-8 items-center pt-10 ps-4 lg:hidden">
                             {NAV_ITEMS.map((item, index) =>
                                 <NavLink key={index} href={item.href}>
@@ -73,7 +92,7 @@ const Header = () => {
                 </AnimatePresence>
 
             </header>
-        </div>
+        </motion.div>
     );
 }
  
